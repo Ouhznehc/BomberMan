@@ -20,6 +20,8 @@ class Physics: public Component
     private:
         float vx = 0, vy = 0;
         int my_type;
+        float changeTime = 0.2;
+        int changeSign = 0;
 };
 
 #endif // PHYSICS_H

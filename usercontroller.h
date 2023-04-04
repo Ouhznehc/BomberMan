@@ -14,8 +14,8 @@ public:
     void onUpdate(float deltaTime) override;
     int Type();
     void setType(int type);
-    float coolSetBombTime = 4;
-    float coolMoveTime = 0.5;
+    float coolUpdateTime = 1;
+    float coolBombTime = 0.5;
 
 private:
     int my_type;

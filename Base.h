@@ -14,6 +14,11 @@
 #define AI1 11
 #define PLAYER2 12
 #define AI2 13
+#define LEFT 14
+#define RIGHT 15
+#define UP 16
+#define DOWN 17
+#define STAY 18
 extern GameObject* beginGame;
 extern GameObject* endGame;
 extern GameObject* help;
@@ -32,11 +37,13 @@ extern bool isPlayer1Live;
 extern bool isPlayer2Live;
 extern bool isAI1Live;
 extern bool isAI2Live;
+extern bool isRead;
 float distance(Transform* a, Transform* b);
 bool checkAchieve(Transform *now);
 int location(float x, float y);
+void upDateScore();
 bool searchItem(float x, float y, int type);
-bool checkStuck(float x, float y);
 void addThing(GameObject *now, int type);
 void removeThing(GameObject *now);
+int decide(int x, int y);
 #endif // BASE_H

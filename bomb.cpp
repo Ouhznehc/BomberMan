@@ -30,7 +30,7 @@ void Bomb :: onUpdate(float deltaTime){
     else if(bombTime > 0.5) this->getParentGameObject()->getComponent<ImageTransform>()->setImage(":/Item/Picture/Item/unit_bombwater_small.png");
     else if(bombTime > 0)this->getParentGameObject()->getComponent<ImageTransform>()->setImage(":/Item/Picture/Item/unit_bombwater_big.png");
     if(bombTime > 0) return;
-    removeThing(this->getParentGameObject());
+    //addThing(this->getParentGameObject(), FLOOR);
     if(!isAddNum)this->owner->getComponent<ItemEffect>()->restBombNum++, isAddNum = true;
     if(flashTime <= 0){
        for(int i = 0; i < 4; i++){
@@ -75,7 +75,7 @@ void Bomb :: onUpdate(float deltaTime){
                         .addToGameObject(flash[3*i+k-1]);
                         this->getParentGameObject()->attachGameObject(flash[3*i+k-1]);
                     flash[3*i+k-1]->getComponent<Transform>()->setZValue((y - 100) / 40);
-                    //addThing(flash[3*i+k-1], FLASH);
+                    addThing(flash[3*i+k-1], FLASH);
                 }
                 else{
                     ImageTransformBuilder()
@@ -86,7 +86,7 @@ void Bomb :: onUpdate(float deltaTime){
                         .addToGameObject(flash[3*i+k-1]);
                         this->attachGameObject(flash[3*i+k-1]);
                     flash[3*i+k-1]->getComponent<Transform>()->setZValue((y - 100) / 40);
-                   // addThing(flash[3*i+k-1], FLASH);
+                    addThing(flash[3*i+k-1], FLASH);
                 }
                 assert(flash[3*i+k-1] != nullptr);
                 if(location(x, y) == SOFT_WALL || location(x, y) == FLASH){
@@ -115,7 +115,7 @@ void Bomb :: onUpdate(float deltaTime){
                             isAI2Live = false;
                             trans->getParentGameObject()->getComponent<ImageTransform>()->setImage("");
                         }
-                        else  if(trans->type() == BOMB) continue;
+                        else if(trans->type() == BOMB) continue;
                         else destory(trans->getParentGameObject());
                     }
 
@@ -134,18 +134,22 @@ void Bomb :: onUpdate(float deltaTime){
                                 if(num == 0 && this->owner->getComponent<Transform>()->type() != AI1 && this->owner->getComponent<Transform>()->type() != AI2){
                                     trans->getParentGameObject()->getComponent<ImageTransform>()->setImage(":/Item/Picture/Item/item_71.png");
                                     trans->getParentGameObject()->getComponent<Transform>()->setType(POWER);
+                                    addThing(trans->getParentGameObject(), POWER);
                                 }
                                 else if(num == 1){
                                     trans->getParentGameObject()->getComponent<ImageTransform>()->setImage(":/Item/Picture/Item/item_70.png");
                                     trans->getParentGameObject()->getComponent<Transform>()->setType(SPEED);
+                                    addThing(trans->getParentGameObject(), SPEED);
                                 }
                                 else if(num == 2 && this->owner->getComponent<Transform>()->type() != AI1 && this->owner->getComponent<Transform>()->type() != AI2){
                                     trans->getParentGameObject()->getComponent<ImageTransform>()->setImage(":/Item/Picture/Item/Tutorial_Hand2_1.png");
                                     trans->getParentGameObject()->getComponent<Transform>()->setType(PUSH);
+                                    addThing(trans->getParentGameObject(), PUSH);
                                 }
-                                else if(num == 3){
+                                else if(num == 3 && this->owner->getComponent<Transform>()->type() != AI1 && this->owner->getComponent<Transform>()->type() != AI2){
                                     trans->getParentGameObject()->getComponent<ImageTransform>()->setImage(":/Item/Picture/Item/item_100.png");
                                     trans->getParentGameObject()->getComponent<Transform>()->setType(ADDBOMB);
+                                    addThing(trans->getParentGameObject(), ADDBOMB);
                                 }
                                 else destory(trans->getParentGameObject());
                             }
@@ -158,10 +162,12 @@ void Bomb :: onUpdate(float deltaTime){
                             else if(trans->type() == FLASH) continue;
                             else if(trans->type() == PLAYER1){
                                 isPlayer1Live = false;
+                                addThing(trans->getParentGameObject(), FLOOR);
                                 trans->getParentGameObject()->getComponent<ImageTransform>()->setImage("");
                             }
                             else if(trans->type() == PLAYER2){
                                 isPlayer2Live = false;
+                                addThing(trans->getParentGameObject(), FLOOR);
                                 trans->getParentGameObject()->getComponent<ImageTransform>()->setImage("");
                             }
                             else if(trans->type() == AI1){
@@ -172,7 +178,7 @@ void Bomb :: onUpdate(float deltaTime){
                                 trans->getParentGameObject()->getComponent<ImageTransform>()->setImage("");
                                 isAI2Live = false;
                             }
-                            else destory(trans->getParentGameObject());
+                           // else destory(trans->getParentGameObject());
                         }
                     }
                 }
@@ -197,5 +203,5 @@ void setBomb(GameObject *Owner){
         .addToGameObject(bomb);
         bomb->getComponent<Transform>()->setZValue(((Owner->getComponent<Transform>()->pos().y()) - 100 ) / 40);
         Owner->attachGameObject(bomb);
-    addThing(bomb, BOMB);
+        addThing(bomb, BOMB);
 }

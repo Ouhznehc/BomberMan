@@ -34,6 +34,39 @@
         <file>Picture/Player/AI2_face.png</file>
         <file>Picture/Player/AI2_left.png</file>
         <file>Picture/Player/AI2_right.png</file>
+        <file>Picture/Player/default_user_image.png</file>
+        <file>Picture/Player/player1_face_1.png</file>
+        <file>Picture/Player/player1_face_2.png</file>
+        <file>Picture/Player/player1_back_1.png</file>
+        <file>Picture/Player/player1_back_2.png</file>
+        <file>Picture/Player/player1_right_1.png</file>
+        <file>Picture/Player/player1_right_2.png</file>
+        <file>Picture/Player/player1_left_1.png</file>
+        <file>Picture/Player/player1_left_2.png</file>
+        <file>Picture/Player/AI1_back_1.png</file>
+        <file>Picture/Player/AI1_back_2.png</file>
+        <file>Picture/Player/AI1_face_1.png</file>
+        <file>Picture/Player/AI1_face_2.png</file>
+        <file>Picture/Player/AI1_left_1.png</file>
+        <file>Picture/Player/AI1_left_2.png</file>
+        <file>Picture/Player/AI1_right_1.png</file>
+        <file>Picture/Player/AI1_right_2.png</file>
+        <file>Picture/Player/AI2_back_1.png</file>
+        <file>Picture/Player/AI2_back_2.png</file>
+        <file>Picture/Player/AI2_face_1.png</file>
+        <file>Picture/Player/AI2_face_2.png</file>
+        <file>Picture/Player/AI2_left_1.png</file>
+        <file>Picture/Player/AI2_left_2.png</file>
+        <file>Picture/Player/AI2_right_1.png</file>
+        <file>Picture/Player/AI2_right_2.png</file>
+        <file>Picture/Player/player2_back_1.png</file>
+        <file>Picture/Player/player2_back_2.png</file>
+        <file>Picture/Player/player2_face_1.png</file>
+        <file>Picture/Player/player2_face_2.png</file>
+        <file>Picture/Player/player2_left_1.png</file>
+        <file>Picture/Player/player2_left_2.png</file>
+        <file>Picture/Player/player2_right_1.png</file>
+        <file>Picture/Player/player2_right_2.png</file>
     </qresource>
     <qresource prefix="/Map">
         <file>Picture/Map/map_ice_object5.png</file>
